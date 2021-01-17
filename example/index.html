@@ -22,7 +22,6 @@
     justify-content: center;
     overflow: scroll;
     text-align: center;
-    /* background-color: black; */
   }
   example-element {
     width: 800px;
@@ -42,7 +41,7 @@
 
   .code-box {
     display: flex;
-    width: 800px;
+    width: 1200px;
     height: 600px;
   }
 
@@ -57,45 +56,60 @@
     font-size: 25px;
   }
 
+  iframe {
+      display: block;
+      width: 800px;
+      height: 500px;
+      overflow: hidden;
+      margin: auto;
+      border: 5px solid black;
+      margin-bottom: 10px;
+  }
+
 
 </style>
 
 <template id="example">
     <div class="row">
         <div class="column">
-            <img src="image/wedding.jpeg">
-            <img src="image/rocks.jpeg">
-            <img src="image/falls2.jpeg">
-            <img src="image/paris.jpeg" style="width: 20vw; width: 40vw">
-            <img src="image/nature.jpeg">
-            <img src="image/mist.jpeg">
-            <img src="image/paris.jpeg">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/baboon.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/girl.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/monarch.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/arctichare.png" style="width: 20vw; width: 40vw">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/barbara.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/boat.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/cat.png">
         </div>
         <div class="column">
-            <img src="image/underwater.jpeg">
-            <img src="image/ocean.jpeg">
-            <img src="image/wedding.jpeg">
-            <img src="image/mountainskies.jpeg">
-            <img src="image/rocks.jpeg">
-            <img src="image/underwater.jpeg">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/arctichare.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/frymire.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/airplane.png">
+
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/mountain.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/peppers.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/pool.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/serrano.png">
         </div>
         <div class="column">
-            <img src="image/wedding.jpeg">
-            <img src="image/rocks.jpeg">
-            <img src="image/falls2.jpeg">
-            <img src="image/paris.jpeg">
-            <img src="image/nature.jpeg">
-            <img src="image/mist.jpeg">
-            <img src="image/paris.jpeg">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/baboon.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/girl.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/monarch.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/arctichare.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/barbara.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/boat.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/cat.png">
         </div>
         <div class="column">
-            <img src="image/underwater.jpeg">
-            <img src="image/ocean.jpeg">
-            <img src="image/wedding.jpeg">
-            <img src="image/mountainskies.jpeg">
-            <img src="image/rocks.jpeg">
-            <img src="image/underwater.jpeg">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/arctichare.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/frymire.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/airplane.png">
+
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/mountain.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/peppers.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/pool.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/serrano.png">
         </div>
+    </div>
       <style>
 
           .row {
@@ -104,7 +118,6 @@
             margin: auto;
           }
 
-          /* Create four equal columns that sits next to each other */
           .column {
             vertical-align: top;
             display: inline-block;
@@ -119,14 +132,12 @@
             width: 100%;
           }
 
-          /* Responsive layout - makes a two column-layout instead of four columns */
           @media screen and (max-width: 800px) {
             .column {
                 width: 50vw;
             }
           }
 
-          /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
           @media screen and (max-width: 600px) {
             .column {
                 width: 100vw;
@@ -140,63 +151,75 @@
 <h1>VIRTUAL VIEWPORT FOR WEB COMPONENT</h1>
 
 <div>
-  <button onclick="replace(true)">add virtual viewport</button>
-  <button onclick="replace()">remove virtual viewport</button>
+  <button onclick="replace(true)">with virtual viewport</button>
+  <button onclick="replace()">without virtual viewport</button>
 </div>
 <p class="info safe">"vw unit" and "@media query" rule now relative to <span class="right-text">component container itself</span><span class="hide wrong-text">window, try to resize window</span></p>
 
 <div style="margin-top:20px;">
-  <input type="range" id="volume" name="volume" value="80"
+  <input type="range" id="vp" name="vp" value="80"
          min="0" max="100" oninput='changeSize(event)'>
-  <label for="volume">adjust width</label>
+  <label for="vp">adjust web component width:<span class="width">800px</span> </label>
 </div>
-
-  <p>width: <span class="width">800px</span></p>
-
 
 <example-element></example-element> 
 
+<h2 class='iframe-title'>Iframe example:</h2>
+
+<div style="margin-bottom: 20px; margin: auto">
+    <input type="range" id="volume" name="volume" value="80" min="0" max="100" oninput="changeSize(event, true)" />
+    <label for="volume">adjust iframe width: <span class="iframe-width">800px</span></label>
+</div>
+
+<iframe src="./raw.html" frameborder="0"></iframe>
+
+
+
 <div class="code-box">
-<textarea style="flex: 1" disabled>
-  <template id="example">
+
+<textarea style="flex: 1.2" disabled>
     <div class="row">
         <div class="column">
-            <img src="image/wedding.jpeg">
-            <img src="image/rocks.jpeg">
-            <img src="image/falls2.jpeg">
-            <img src="image/paris.jpeg" style="width: 20vw; width: 40vw">
-            <img src="image/nature.jpeg">
-            <img src="image/mist.jpeg">
-            <img src="image/paris.jpeg">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/baboon.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/girl.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/monarch.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/arctichare.png" style="width: 20vw; width: 40vw">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/barbara.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/boat.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/cat.png">
         </div>
         <div class="column">
-            <img src="image/underwater.jpeg">
-            <img src="image/ocean.jpeg">
-            <img src="image/wedding.jpeg">
-            <img src="image/mountainskies.jpeg">
-            <img src="image/rocks.jpeg">
-            <img src="image/underwater.jpeg">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/arctichare.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/frymire.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/airplane.png">
+
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/mountain.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/peppers.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/pool.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/serrano.png">
         </div>
         <div class="column">
-            <img src="image/wedding.jpeg">
-            <img src="image/rocks.jpeg">
-            <img src="image/falls2.jpeg">
-            <img src="image/paris.jpeg">
-            <img src="image/nature.jpeg">
-            <img src="image/mist.jpeg">
-            <img src="image/paris.jpeg">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/baboon.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/girl.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/monarch.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/arctichare.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/barbara.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/boat.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/cat.png">
         </div>
         <div class="column">
-            <img src="image/underwater.jpeg">
-            <img src="image/ocean.jpeg">
-            <img src="image/wedding.jpeg">
-            <img src="image/mountainskies.jpeg">
-            <img src="image/rocks.jpeg">
-            <img src="image/underwater.jpeg">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/arctichare.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/frymire.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/airplane.png">
+
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/mountain.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/peppers.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/pool.png">
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/serrano.png">
         </div>
     </div>
 </textarea>
-<textarea style="flex: 1" disabled>
+<textarea style="flex: 0.8" disabled>
       <style>
           .row {
             width: 100vw;
@@ -239,14 +262,22 @@
 let exampleElement = document.getElementsByTagName('example-element')[0]
 const codeBox = document.getElementsByClassName('code-box')[0]
 const widthText = document.getElementsByClassName('width')[0]
+const iframe = document.getElementsByTagName('iframe')[0];
+const iframeWidthText = document.getElementsByClassName('iframe-width')[0]
 const rightText = document.getElementsByClassName('right-text')[0]
 const wrongText = document.getElementsByClassName('wrong-text')[0]
 const info = document.getElementsByClassName('info')[0]
+const iframeTitle = document.getElementsByClassName('iframe-title')[0]
 
-function changeSize(event){
+function changeSize(event, isIframe){
   const width = event.target.value * 10 +'px';
-  exampleElement.style.width = width
-  widthText.textContent = width
+  if (isIframe) {
+    iframe.style.width = width
+    iframeWidthText.textContent = width
+  } else {
+    exampleElement.style.width = width
+    widthText.textContent = width
+  }
 }
 
 function replace(addViewPort){
@@ -254,7 +285,7 @@ function replace(addViewPort){
 
   exampleElement.remove()
 
-  document.body.insertBefore(newElement, codeBox)
+  document.body.insertBefore(newElement, iframeTitle)
 
   exampleElement = newElement
 
