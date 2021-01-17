@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type='module' src="./index.js"></script>
+</head>
+<body>
+
+<style>
+
+  h1 {
+    margin-bottom: 50px;
+  }
+
+  body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: scroll;
+    text-align: center;
+    /* background-color: black; */
+  }
+  example-element {
+    width: 800px;
+    height: 500px;
+    overflow: scroll;
+    margin-bottom: 10px;
+    border: 5px solid black;
+  }
+
+  .display {
+    display: block
+  }
+
+  .hide {
+    display: none
+  }
+
+  .code-box {
+    display: flex;
+    width: 800px;
+    height: 600px;
+  }
+
+  .warn {
+    color: red;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .safe {
+    color: green;
+    font-size: 25px;
+  }
+
+
+</style>
+
+<template id="example">
+    <div class="row">
+        <div class="column">
+            <img src="image/wedding.jpeg">
+            <img src="image/rocks.jpeg">
+            <img src="image/falls2.jpeg">
+            <img src="image/paris.jpeg" style="width: 20vw; width: 40vw">
+            <img src="image/nature.jpeg">
+            <img src="image/mist.jpeg">
+            <img src="image/paris.jpeg">
+        </div>
+        <div class="column">
+            <img src="image/underwater.jpeg">
+            <img src="image/ocean.jpeg">
+            <img src="image/wedding.jpeg">
+            <img src="image/mountainskies.jpeg">
+            <img src="image/rocks.jpeg">
+            <img src="image/underwater.jpeg">
+        </div>
+        <div class="column">
+            <img src="image/wedding.jpeg">
+            <img src="image/rocks.jpeg">
+            <img src="image/falls2.jpeg">
+            <img src="image/paris.jpeg">
+            <img src="image/nature.jpeg">
+            <img src="image/mist.jpeg">
+            <img src="image/paris.jpeg">
+        </div>
+        <div class="column">
+            <img src="image/underwater.jpeg">
+            <img src="image/ocean.jpeg">
+            <img src="image/wedding.jpeg">
+            <img src="image/mountainskies.jpeg">
+            <img src="image/rocks.jpeg">
+            <img src="image/underwater.jpeg">
+        </div>
+      <style>
+
+          .row {
+            width: 100vw;
+            font-size: 0;
+            margin: auto;
+          }
+
+          /* Create four equal columns that sits next to each other */
+          .column {
+            vertical-align: top;
+            display: inline-block;
+            width: 25vw;
+            box-sizing: border-box;
+            padding: 0 4px;
+          }
+
+          .column img {
+            margin-top: 8px;
+            vertical-align: middle;
+            width: 100%;
+          }
+
+          /* Responsive layout - makes a two column-layout instead of four columns */
+          @media screen and (max-width: 800px) {
+            .column {
+                width: 50vw;
+            }
+          }
+
+          /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+          @media screen and (max-width: 600px) {
+            .column {
+                width: 100vw;
+            }
+          }
+      </style>
+    </div>
+
+</template>
+
+<h1>VIRTUAL VIEWPORT FOR WEB COMPONENT</h1>
+
+<div>
+  <button onclick="replace(true)">add virtual viewport</button>
+  <button onclick="replace()">remove virtual viewport</button>
+</div>
+<p class="info safe">"vw unit" and "@media query" rule now relative to <span class="right-text">component container itself</span><span class="hide wrong-text">window, try to resize window</span></p>
+
+<div style="margin-top:20px;">
+  <input type="range" id="volume" name="volume" value="80"
+         min="0" max="100" oninput='changeSize(event)'>
+  <label for="volume">adjust width</label>
+</div>
+
+  <p>width: <span class="width">800px</span></p>
+
+
+<example-element></example-element> 
+
+<div class="code-box">
+<textarea style="flex: 1" disabled>
+  <template id="example">
+    <div class="row">
+        <div class="column">
+            <img src="image/wedding.jpeg">
+            <img src="image/rocks.jpeg">
+            <img src="image/falls2.jpeg">
+            <img src="image/paris.jpeg" style="width: 20vw; width: 40vw">
+            <img src="image/nature.jpeg">
+            <img src="image/mist.jpeg">
+            <img src="image/paris.jpeg">
+        </div>
+        <div class="column">
+            <img src="image/underwater.jpeg">
+            <img src="image/ocean.jpeg">
+            <img src="image/wedding.jpeg">
+            <img src="image/mountainskies.jpeg">
+            <img src="image/rocks.jpeg">
+            <img src="image/underwater.jpeg">
+        </div>
+        <div class="column">
+            <img src="image/wedding.jpeg">
+            <img src="image/rocks.jpeg">
+            <img src="image/falls2.jpeg">
+            <img src="image/paris.jpeg">
+            <img src="image/nature.jpeg">
+            <img src="image/mist.jpeg">
+            <img src="image/paris.jpeg">
+        </div>
+        <div class="column">
+            <img src="image/underwater.jpeg">
+            <img src="image/ocean.jpeg">
+            <img src="image/wedding.jpeg">
+            <img src="image/mountainskies.jpeg">
+            <img src="image/rocks.jpeg">
+            <img src="image/underwater.jpeg">
+        </div>
+    </div>
+</textarea>
+<textarea style="flex: 1" disabled>
+      <style>
+          .row {
+            width: 100vw;
+            font-size: 0;
+            margin: auto;
+          }
+
+          .column {
+            vertical-align: top;
+            display: inline-block;
+            width: 25vw;
+            box-sizing: border-box;
+            padding: 0 4px;
+          }
+
+          .column img {
+            margin-top: 8px;
+            vertical-align: middle;
+            width: 100%;
+          }
+
+          @media screen and (max-width: 800px) {
+            .column {
+                width: 50vw;
+            }
+          }
+
+          @media screen and (max-width: 600px) {
+            .column {
+                width: 100vw;
+            }
+          }
+      </style>
+</textarea>
+</div>
+
+
+<script>
+
+let exampleElement = document.getElementsByTagName('example-element')[0]
+const codeBox = document.getElementsByClassName('code-box')[0]
+const widthText = document.getElementsByClassName('width')[0]
+const rightText = document.getElementsByClassName('right-text')[0]
+const wrongText = document.getElementsByClassName('wrong-text')[0]
+const info = document.getElementsByClassName('info')[0]
+
+function changeSize(event){
+  const width = event.target.value * 10 +'px';
+  exampleElement.style.width = width
+  widthText.textContent = width
+}
+
+function replace(addViewPort){
+  const newElement = document.createElement('example-element') 
+
+  exampleElement.remove()
+
+  document.body.insertBefore(newElement, codeBox)
+
+  exampleElement = newElement
+
+  if (addViewPort) {
+    rightText.classList.remove('hide')
+    wrongText.classList.add('hide')
+    info.classList.add('safe')
+    info.classList.remove('warn')
+    new ViewPort(exampleElement)
+  } else {
+    rightText.classList.add('hide')
+    wrongText.classList.remove('hide')
+    info.classList.add('warn')
+    info.classList.remove('safe')
+  }
+}
+
+
+</script>
+
+</body>
+</html>
