@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="row">
+        <div class="column">
+            <img src="image/wedding.jpeg">
+            <img src="image/rocks.jpeg">
+            <img src="image/falls2.jpeg">
+            <img src="image/paris.jpeg">
+            <img src="image/nature.jpeg">
+            <img src="image/mist.jpeg">
+            <img src="image/paris.jpeg">
+        </div>
+        <div class="column">
+            <img src="image/underwater.jpeg">
+            <img src="image/ocean.jpeg">
+            <img src="image/wedding.jpeg">
+            <img src="image/mountainskies.jpeg">
+            <img src="image/rocks.jpeg">
+            <img src="image/underwater.jpeg">
+        </div>
+        <div class="column">
+            <img src="image/wedding.jpeg">
+            <img src="image/rocks.jpeg">
+            <img src="image/falls2.jpeg">
+            <img src="image/paris.jpeg">
+            <img src="image/nature.jpeg">
+            <img src="image/mist.jpeg">
+            <img src="image/paris.jpeg">
+        </div>
+        <div class="column">
+            <img src="image/underwater.jpeg">
+            <img src="image/ocean.jpeg">
+            <img src="image/wedding.jpeg">
+            <img src="image/mountainskies.jpeg">
+            <img src="image/rocks.jpeg">
+            <img src="image/underwater.jpeg">
+        </div>
+    </div>
+
+    <style>
+
+        body {
+            margin: 0;
+        }
+        .row {
+          font-size: 0;
+          /* display: inline-block; */
+          /* flex-wrap: wrap; */
+        }
+
+        /* Create four equal columns that sits next to each other */
+        .column {
+          display: inline-block;
+          width: 25vw;
+          box-sizing: border-box;
+          padding: 0 4px;
+          vertical-align: top;
+        }
+
+        .column img {
+          margin-top: 8px;
+          vertical-align: middle;
+          width: 100%;
+        }
+
+        /* Responsive layout - makes a two column-layout instead of four columns */
+        @media screen and (max-width: 800px) {
+          .column {
+              width: 50vw
+          }
+        }
+
+        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+          .column {
+              width: 100vw;
+          }
+        }
+    </style>
+    <script>
+        console.log(window.test);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <style>
+        body {
+            text-align: center;
+        }
+        iframe {
+            display: block;
+            width: 900px;
+            height: 500px;
+            overflow: hidden;
+            margin: auto;
+            border: 5px solid black;
+        }
+    </style>
+    <body>
+        <div style="margin-bottom: 20px; margin: auto">
+            <input type="range" id="volume" name="volume" value="80" min="0" max="100" oninput="changeSize(event)" />
+            <label for="volume">adjust width</label>
+        </div>
+        <p>width: <span class="width">800px</span></p>
+
+        <iframe src="./raw.html" frameborder="0"></iframe>
+
+        <p>iframe 内以vw为单位的元素以及mediaquery rule是根据iframe的大小来计算尺寸的，而不是主文档的视口。 </p>
+    </body>
+
+    <script>
+        const iframe = document.getElementsByTagName('iframe')[0];
+        const widthText = document.getElementsByClassName('width')[0]
+
+
+        function changeSize(event) {
+            const width = event.target.value * 10 + 'px';
+            iframe.style.width = width;
+            widthText.textContent = width;
+        }
+    </script>
+</html>

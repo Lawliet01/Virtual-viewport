@@ -1,5 +1,6 @@
 import cssParser from './cssParser/index.js'
 
+// 遍历stylesheets
 const iterateStyleSheets = (styleSheets, callback) => {
     for (let styleSheet of styleSheets) {
         const cssRuleList = styleSheet.cssRules;
@@ -9,6 +10,7 @@ const iterateStyleSheets = (styleSheets, callback) => {
     }
 }
 
+// 遍历元素
 const iterateElements = (childrenGroup, callback) => {
     for (let el of childrenGroup) {
         const descendants = el.getElementsByTagName('*');
@@ -18,6 +20,7 @@ const iterateElements = (childrenGroup, callback) => {
     }
 };
 
+// 替换stylesheet里面的方法
 const replaceRule = (styleSheet, newRule, oldRule) => {
     const index = Array.from(styleSheet.cssRules).indexOf(oldRule)
     if (index === -1) return;
@@ -27,12 +30,14 @@ const replaceRule = (styleSheet, newRule, oldRule) => {
     return styleSheet.cssRules[index]
 }
 
+// vw转化为px
 const vwToPx = (value, containerWidth)=> {
     value = Number(value)
     if (isNaN(value)) throw new Error('wrong type')
     return containerWidth * value / 100 + 'px'
 }
 
+// 先把视口转为使用MatchMedia来测
 const isMatchMedia = (rule, containerSize) => {
     // TODO: 使用更加专业的正则匹配(考虑not/only/and em等等)
     const regex = /(\d+)px/;
@@ -64,6 +69,7 @@ export default class ViewPort {
         this.styleSheetRecords = new Map();
         this.mediaQueryRecords = new Map();
 
+        // 遍历style sheet，存储信息
         iterateStyleSheets(this.shadowRoot.styleSheets, (cssRule, styleSheet) => {
             const ast = cssParser.parse(cssRule.cssText);
 
@@ -144,7 +150,7 @@ export default class ViewPort {
 
         this.inlineStyleRecord = new Map();
         
-
+        // 遍历所有子代元素，存储vw信息
         iterateElements(this.container.shadowRoot.children, (e) => {
             this.collectInlineStyleElements(e);
         });
@@ -153,6 +159,7 @@ export default class ViewPort {
         // console.log(this.mediaQueryRecords);
         // console.log(this.inlineStyleRecord);
         
+        // 监听container大小变化，作出改变
         this.observer = new ResizeObserver((entries) => {
             const { inlineSize: containerWidth, blockSize: containerHeight } = entries[0].contentBoxSize[0];
 
